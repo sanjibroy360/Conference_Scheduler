@@ -17,6 +17,6 @@ class Track
       "#{talk.start_time.strftime("%I:%M %p")} #{talk.subject}"
     end.join("\n")
 
-    "#{@track_name}\n#{talk_info_strings}\n....."
+    "\n#{@track_name}\n\n#{talk_info_strings}\n....."
   end
 end
