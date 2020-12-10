@@ -6,8 +6,7 @@ class Track
 
   def initialize(track_number, morning_session: MorningSession, after_lunch_session: AfterLunchSession)
     @track_name = "Track #{Integer(track_number)}"
-    @today = Time.now
-    @day, @month, @year = @today.day, @today.month, @today.year
+    @day, @month, @year = Time.now.day, Time.now.month, Time.now.year
     @morning_session = morning_session.new(@day, @month, @year)
     @after_lunch_session = after_lunch_session.new(@day, @month, @year)
   end
