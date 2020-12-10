@@ -17,6 +17,11 @@ class MorningSession
   end
 
   def add_talk(talk)
+    total_session_duration = (@end_time - @start_time) / 60
+    booked_till = @start_time + ((total_session_duration - @remaining_time) * 60)
+    talk.is_pending = false
+    talk.start_time = booked_till
+    @remaining_time -= talk.duration
     @talks << talk
   end
 end
