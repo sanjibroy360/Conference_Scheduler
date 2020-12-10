@@ -23,12 +23,8 @@ module RegisteredTalks
     Talk.register("Ansible : An alternative to chef", 5),
     Talk.register("Ruby on Rails on Minitest", 30),
   ]
-
-  def pending_lightnig_talk_list
-    TALK_LIST.select { |talk| talk.is_a? LightningTalk && talk.is_pending }
-  end
-
-  def pending_normal_talk_list
-    TALK_LIST.select { |talk| talk.is_a? NormalTalk && talk.is_pending }
+  def all_pending_talks
+    pending_talks = TALK_LIST.select { |talk| talk.start_time.nil? }.map { |talk| talk.subject }.join("\n")
+    "\nPending Talks\n\n#{pending_talks}\n\n" if !pending_talks.empty?
   end
 end
